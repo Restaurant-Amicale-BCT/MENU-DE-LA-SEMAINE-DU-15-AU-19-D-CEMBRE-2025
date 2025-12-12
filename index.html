@@ -18,6 +18,8 @@
             --text-dark: #333;
             --shadow: 0 10px 20px rgba(0,0,0,0.08);
             --gold-light: #F4D35E;
+            --btn-color: #f1c40f; /* Jaune Vif pour le bouton */
+            --btn-shadow: #e67e22;
         }
 
         /* Réinitialisation de base */
@@ -35,13 +37,21 @@
             color: var(--text-dark);
             font-size: 16px;
             overflow-x: hidden;
+            text-align: center;
+        }
+        
+        /* Conteneurs pour assurer le centrage */
+        .banner, .kitchen-team-gifs, .welcome-message, #app-container, #intro-overlay {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
         }
 
-        /* --- CSS DE LA BANNIÈRE (LOGO) - Largeur ajustée --- */
+        /* --- CSS DE LA BANNIÈRE (LOGO) --- */
         .banner {
-            max-width: 1200px; /* Nouvelle limite pour les très grands écrans */
-            width: 95%; /* 95% de la largeur du parent */
-            height: 100px; /* Légèrement plus haut */
+            max-width: 1200px;
+            width: 95%;
+            height: 100px; 
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); 
             border-radius: 12px;
             display: flex;
@@ -51,65 +61,33 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Ombre plus forte */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
             margin: 20px auto 10px auto;
             transition: all 0.3s ease;
         }
 
         .banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 6px; /* Ligne d'or plus épaisse */
+            content: ''; position: absolute; top: 0; width: 100%; height: 6px;
             background: var(--gold-light); 
         }
 
-        .logo-text {
-            animation: fadeInBanner 1.2s ease-out; 
-        }
-
+        .logo-text { animation: fadeInBanner 1.2s ease-out; }
         .fr-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 22px; /* Agrandissement du titre FR */
-            color: var(--gold-light);
-            letter-spacing: 1px;
-            text-shadow: 0 2px 3px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: var(--gold-light);
+            letter-spacing: 1px; text-shadow: 0 2px 3px rgba(0,0,0,0.4); transition: all 0.3s ease;
         }
-
         .ar-text {
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 700;
-            font-size: 18px; /* Agrandissement du titre AR */
-            color: var(--white);
-            margin-top: 5px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif; font-weight: 700; font-size: 18px; color: var(--white);
+            margin-top: 5px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); transition: all 0.3s ease;
         }
-
-        .banner:hover .fr-text {
-            color: var(--white);
-            transform: scale(1.03);
-            text-shadow: 0 0 10px rgba(244, 211, 94, 0.8);
-        }
-
-        .banner:hover .ar-text {
-            color: var(--gold-light); 
-            transform: scale(1.02);
-            text-shadow: 0 0 8px rgba(255,255,255,0.7);
-        }
-
-        @keyframes fadeInBanner {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+        .banner:hover .fr-text { color: var(--white); transform: scale(1.03); text-shadow: 0 0 10px rgba(244, 211, 94, 0.8); }
+        .banner:hover .ar-text { color: var(--gold-light); transform: scale(1.02); text-shadow: 0 0 8px rgba(255,255,255,0.7); }
+        @keyframes fadeInBanner { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         /* --- SECTION : PHOTOS ÉQUIPE DE CUISINE (FULL WIDTH) --- */
         .kitchen-team-gifs {
             max-width: 1200px; 
-            width: 95%; /* Prend 95% de la largeur */
+            width: 95%; 
             margin: 10px auto 10px auto; 
             padding: 0 15px;
             display: flex;
@@ -117,64 +95,107 @@
             gap: 15px; 
             align-items: center;
         }
-
-        .kitchen-team-gifs a {
-            max-width: 100%; /* S'étend sur la largeur maximale permise */
-            width: 100%;
-            display: block;
-        }
-
+        .kitchen-team-gifs a { max-width: 100%; width: 100%; display: block; }
         .kitchen-team-gifs img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-            display: block; 
+            width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s; display: block; 
         }
-        
-        .kitchen-team-gifs img:hover {
-            transform: translateY(-5px);
-        }
+        .kitchen-team-gifs img:hover { transform: translateY(-5px); }
 
         /* --- SECTION : MESSAGE DE BIENVENUE ANIMÉ --- */
         .welcome-message {
             max-width: 1200px;
-            width: 95%; /* Prend 95% de la largeur */
+            width: 95%; 
             margin: 25px auto 30px auto;
-            padding: 25px 20px; /* Plus de padding */
+            padding: 25px 20px;
             background: linear-gradient(90deg, #f0f0f0, var(--white), #f0f0f0);
             border-radius: 12px;
             box-shadow: 0 8px 15px rgba(0,0,0,0.15);
             text-align: center;
-            border: 3px solid var(--accent); /* Bordure plus épaisse */
+            border: 3px solid var(--accent);
             animation: pulse 2s infinite alternate;
         }
-        
         .welcome-message p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem; /* Agrandissement du texte */
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.4;
+            font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+            color: var(--primary); line-height: 1.4;
         }
-        
         .welcome-message span {
-            color: var(--accent);
-            display: block;
-            font-size: 2.0rem; /* Agrandissement de l'accent */
-            margin-top: 5px;
+            color: var(--accent); display: block; font-size: 2.0rem; margin-top: 5px;
         }
-        
         @keyframes pulse {
             from { box-shadow: 0 8px 15px rgba(230, 126, 34, 0.3); }
             to { box-shadow: 0 10px 20px rgba(230, 126, 34, 0.6); }
         }
 
-        /* --- MAIN APP INTERFACE (Titres agrandis) --- */
+        /* --- SECTION D'INTRODUCTION et BOUTON --- */
+        #intro-overlay {
+            position: relative; min-height: 100vh; width: 100%; max-width: none;
+            background: linear-gradient(135deg, #ffffff, #eaeded); z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 40px 20px; transition: opacity 0.6s ease-out; text-align: center;
+        }
+        .intro-gallery {
+            display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 800px;
+            margin-bottom: 40px; justify-content: center;
+        }
+        .intro-card {
+            width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            opacity: 0; transform: translateY(50px); animation: slideUp 1s forwards; background: white; line-height: 0;
+        }
+        .intro-card:nth-child(1) { animation-delay: 0.2s; }
+        .intro-card:nth-child(2) { animation-delay: 0.5s; }
+        .intro-card img { width: 100%; height: auto; display: block; }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+        .enter-btn-container {
+            padding-bottom: 50px; width: 100%; display: flex; justify-content: center;
+            position: relative;
+        }
+
+        /* STYLE DU BOUTON INTERACTIF */
+        .enter-btn {
+            padding: 20px 60px; font-size: 1.2rem; background-color: var(--btn-color);
+            color: var(--primary); border: 4px solid var(--accent); border-radius: 50px;
+            cursor: pointer; box-shadow: 0 8px 25px rgba(241, 196, 15, 0.6);
+            transition: transform 0.2s, background 0.2s, box-shadow 0.3s;
+            opacity: 0; animation: fadeIn 1s forwards 1s, wobble 2s infinite 3s;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap; position: relative; z-index: 10;
+        }
+        .enter-btn:hover { 
+            transform: scale(1.08); 
+            background-color: #f39c12;
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.8);
+        }
+        .enter-btn:active { transform: scale(0.95); }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes wobble {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            15% { transform: translateY(-3px) rotate(-1deg); }
+            30% { transform: translateY(3px) rotate(1deg); }
+            45% { transform: translateY(-2px) rotate(-1deg); }
+            60% { transform: translateY(2px) rotate(1deg); }
+        }
+
+        /* FLÈCHES ANIMÉES */
+        .enter-btn::before, .enter-btn::after {
+            font-size: 2rem; position: absolute; top: 50%; transform: translateY(-50%);
+            color: var(--accent); text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+            animation: arrow-bounce 1.5s infinite; opacity: 0;
+        }
+        .enter-btn::before { content: '<<'; left: -40px; animation-delay: 0.1s; }
+        .enter-btn::after { content: '>>'; right: -40px; animation-delay: 0.5s; }
+        @keyframes arrow-bounce {
+            0%, 100% { transform: translateY(-50%) translateX(0px); opacity: 0.8; }
+            50% { transform: translateY(-50%) translateX(5px); opacity: 1; }
+        }
+
+        /* --- MAIN APP INTERFACE --- */
         #app-container {
             display: none;
             max-width: 1200px;
+            width: 95%;
             margin: 0 auto;
             padding: 15px;
             opacity: 0;
@@ -183,50 +204,28 @@
         }
 
         header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 30px 15px; /* Plus de padding */
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border-bottom: 4px solid var(--primary);
+            text-align: center; margin-bottom: 20px; padding: 30px 15px; background: white;
+            border-radius: 15px; box-shadow: var(--shadow); border-bottom: 4px solid var(--primary);
         }
-
-        header h1 { 
-            color: var(--primary); 
-            font-size: 1.9rem; /* Titre H1 agrandi */
-            margin-bottom: 8px; 
-            line-height: 1.2; 
-        }
-        header h2 { 
-            color: var(--accent); 
-            font-weight: 600; /* Plus de gras */
-            font-size: 1.2rem; /* Titre H2 agrandi */
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-        }
+        header h1 { color: var(--primary); font-size: 1.9rem; margin-bottom: 8px; line-height: 1.2; }
+        header h2 { color: var(--accent); font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
         header .date { font-weight: bold; color: #95a5a6; margin-top: 5px; font-size: 1.0rem; }
 
-        /* --- RESTE DES STYLES (inclus pour la cohérence) --- */
-        
-        /* NAVIGATION */
+        /* NAVIGATION (inchangé) */
         .nav-days { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .day-btn {
-            padding: 12px 20px; background: white; border: 2px solid white; border-radius: 10px;
-            cursor: pointer; font-weight: bold; font-size: 1rem; color: var(--text-dark);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s; flex: 0 1 auto;
-        }
+        .day-btn { padding: 12px 20px; background: white; border: 2px solid white; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 1rem; color: var(--text-dark); box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s; flex: 0 1 auto; }
         .day-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3); }
         .day-btn.holiday { background: #ffebee; color: #c0392b; border: 1px dashed #c0392b; cursor: default; }
 
-        /* MENU GRID & CARDS */
+        /* --- MENU GRID & CARDS : Modifications pour la taille des images --- */
         .menu-section { display: none; animation: fadeInSection 0.4s ease-in-out; }
         .menu-section.active-day { display: block; }
 
         @keyframes fadeInSection { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .menu-grid {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            /* Permet aux cartes d'être plus larges. Minmax fixé à 400px minimum. */
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
             display: grid;
             gap: 20px;
         }
@@ -238,121 +237,77 @@
             border-top: 4px solid var(--accent); 
             height: 100%; 
             cursor: pointer;
+            /* La carte prendra la largeur de la colonne, qui s'étendra jusqu'à 100% sur les petits écrans */
+            width: 100%;
         }
         .dish-card.diet { border-top-color: var(--green); }
         
         .dish-img-container { 
-            height: 240px; 
+            height: 300px; /* HAUTEUR AUGMENTÉE pour la visibilité */
             overflow: hidden; 
             position: relative; 
             background: #eee; 
+            width: 100%; /* S'assure que le conteneur prend 100% de la largeur de la carte */
         } 
         
         .dish-img-container img { 
-            width: 100%; 
+            width: 100%; /* L'image prend 100% de la largeur du conteneur */
             height: 100%; 
             object-fit: cover; 
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: brightness(100%);
         }
-        
-        .dish-card:hover .dish-img-container img {
-            transform: scale(1.05);
-            filter: brightness(110%);
-        }
-
+        /* Reste des styles de carte (inchangés) */
+        .dish-card:hover .dish-img-container img { transform: scale(1.05); filter: brightness(110%); }
         .dish-tag { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 4px; color: white; font-size: 0.75rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); text-transform: uppercase; }
-        .tag-entry { background: #f39c12; }
-        .tag-main { background: var(--primary); }
-        .tag-diet { background: var(--green); }
+        .tag-entry { background: #f39c12; } .tag-main { background: var(--primary); } .tag-diet { background: var(--green); }
         .dish-content { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; }
         .dish-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--primary); line-height: 1.3; }
-        
-        ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #555;
-            list-style-type: '• ';
-        }
+        ul { padding-left: 20px; margin-bottom: 15px; font-size: 0.95rem; color: #555; list-style-type: '• '; }
         li { margin-bottom: 4px; }
-        
         .nutrition-box { background: #f8f9fa; border-radius: 8px; padding: 12px; margin-top: auto; font-size: 0.9rem; border-left: 3px solid #ddd; }
         .nutrition-box.diet-info { border-left-color: var(--green); background: #eafaf1; }
         .nutri-title { font-weight: bold; font-size: 0.8rem; color: #7f8c8d; text-transform: uppercase; display: block; margin-bottom: 4px; }
         .nutri-icons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px; font-weight: 600; color: var(--text-dark); }
 
-        /* FOOTER et COMPTEUR */
-        footer { 
-            margin-top: 40px; 
-            text-align: center; 
-            padding: 30px 15px 0 15px; 
-            background: white; 
-            border-radius: 15px; 
-            color: #666; 
-            font-size: 0.9rem; 
-        }
+
+        /* FOOTER et COMPTEUR (inchangés) */
+        footer { margin-top: 40px; text-align: center; padding: 30px 15px 0 15px; background: white; border-radius: 15px; color: #666; font-size: 0.9rem; }
         .download-btn { display: inline-flex; align-items: center; justify-content: center; background: #e74c3c; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; margin-bottom: 15px; transition: background 0.3s; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); }
-        #visitor-counter {
-            margin-top: 25px;
-            padding: 20px 15px;
-            border-top: 1px solid #ccc;
-            background-color: #fafafa;
-            border-radius: 0 0 15px 15px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        
-        #visitor-counter .total-visits {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: block;
-        }
+        #visitor-counter { margin-top: 25px; padding: 20px 15px; border-top: 1px solid #ccc; background-color: #fafafa; border-radius: 0 0 15px 15px; font-size: 0.9rem; text-align: center; }
+        #visitor-counter .total-visits { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 10px; display: block; }
+        #total-visits-count span, .device-item span { color: var(--accent); }
+        #device-breakdown { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+        .device-item { display: flex; align-items: center; color: #7f8c8d; }
+        .device-item span { font-weight: bold; margin-left: 5px; font-size: 1.0rem; }
 
-        #device-breakdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .device-item {
-            display: flex;
-            align-items: center;
-            color: #7f8c8d;
-        }
-
-        .device-item span {
-            font-weight: bold;
-            color: var(--accent);
-            margin-left: 5px;
-            font-size: 1.0rem;
-        }
-
-        /* MEDIA QUERIES (RESPONSIVE) */
+        /* MEDIA QUERIES (Responsive) */
         @media (max-width: 850px) {
-             .menu-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-             .banner {
-                height: 90px;
-                width: 95%;
+             .menu-grid { 
+                 /* Réduit la taille minimale des colonnes pour éviter le débordement sur les tablettes */
+                 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
              }
+             .dish-img-container { height: 250px; } /* Ajustement pour les tablettes */
+             .banner { height: 90px; width: 95%; }
              .fr-text { font-size: 18px; }
              .ar-text { font-size: 16px; }
              header h1 { font-size: 1.6rem; }
              header h2 { font-size: 1.0rem; }
+             .enter-btn::before { left: -30px; }
+             .enter-btn::after { right: -30px; }
         }
         
         @media (max-width: 600px) {
+            .menu-grid { 
+                 /* Sur les téléphones, force une seule colonne pleine largeur */
+                 grid-template-columns: 1fr; 
+             }
+            .dish-img-container { height: 220px; } /* Ajustement pour les téléphones */
             .welcome-message p { font-size: 1.2rem; }
             .welcome-message span { font-size: 1.5rem; }
-            #device-breakdown {
-                flex-direction: column;
-                gap: 5px;
-            }
+            #device-breakdown { flex-direction: column; gap: 5px; }
+            .enter-btn { padding: 15px 40px; font-size: 1.1rem; }
+            .enter-btn::before, .enter-btn::after { display: none; } 
         }
     </style>
 </head>
@@ -700,7 +655,7 @@
                             <div class="nutrition-box">
                                 <span class="nutri-title">Analyse</span>
                                 <p>Rôti d'agneau au romarin sur semoule fine et légumes. Le classique.</p>
-                                <div class="nutri-icons">🥘 Énergie • ⚡ 650 Kcal</div>
+                                <div class="nutri-icons">🥘 Énergie • 650 Kcal</div>
                             </div>
                         </div>
                     </div>
